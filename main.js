@@ -1,11 +1,14 @@
-function tocaSomBuzina(){
-    document.querySelector("#som_tecla_buzina").play();
+function tocaSom(idElementoAuio){
+    document.querySelector(idElementoAuio).play();
 }    
     const listaDeTeclas = document.querySelectorAll(".tecla");
 
     let contador = 0;
-    while(contador < 9) {
-        listaDeTeclas[contador].onclick = tocaSomBuzina
+    while(contador < listaDeTeclas.length){
+        const efeito = listaDeTeclas[contador].classList[1];
+        const idAuio = "#som_"+efeito;
+        listaDeTeclas[contador].onclick = function (){
+            tocaSom(idAuio)
+        }
         contador = contador + 1;
-        console.log(contador) ;
     }
